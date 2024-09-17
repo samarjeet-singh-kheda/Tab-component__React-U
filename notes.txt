@@ -1,0 +1,17 @@
+State update batching only happens in React 18 & later. It happens not only in event handlers, but in Promises, setTimeOut etc. 
+
+It can be opted out using:- flushSync(()=> {})
+
+flushSync(() => {
+  setLikes(0);
+});
+
+flushSync(() => {
+  setShowDetails(0);
+});
+
+
+
+Always use callback in setState() functions, whenever the new value depends upon previous value.
+
+If the new state is same as the previous state, then React will not try to update the state. So, it will not re-render the component instance.
